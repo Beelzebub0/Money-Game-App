@@ -9,13 +9,20 @@ import (
 //SetupRouter ... Configure routes
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-	grp1 := r.Group("/user-api")
+	v1 := r.Group("/api")
 	{
-		grp1.GET("user", controllers.GetUsers)
-		grp1.POST("user", controllers.CreateUser)
-		grp1.GET("user/:id", controllers.GetUserByID)
-		grp1.PUT("user/:id", controllers.UpdateUser)
-		grp1.DELETE("user/:id", controllers.DeleteUser)
+		//user
+		v1.GET("user", controllers.GetUsers)
+		v1.POST("user", controllers.CreateUser)
+		v1.GET("user/:id", controllers.GetUserByID)
+		v1.PUT("user/:id", controllers.UpdateUser)
+		v1.DELETE("user/:id", controllers.DeleteUser)
+
+		//activities
+		v1.GET("activities", controllers.GetActivities)
+
+		//activities
+		v1.GET("categories", controllers.GetCategories)
 	}
 	return r
 }

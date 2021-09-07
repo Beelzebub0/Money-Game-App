@@ -1,13 +1,10 @@
 package models
 
-import "time"
+import Config "money-game-2/config"
 
-type Categories struct {
-	Id          int       `json:"id"`
-	Name        string    `json:"name"`
-	Description string    `json:"description"`
-	Status      int       `json:"status"`
-	Flag        int       `json:"flag"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
+func GetAllCategories(categories *[]Categories) (err error) {
+	if err = Config.DB.Find(categories).Error; err != nil {
+		return err
+	}
+	return nil
 }

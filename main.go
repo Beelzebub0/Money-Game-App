@@ -18,6 +18,7 @@ func main() {
 	}
 	defer Config.DB.Close()
 	Config.DB.AutoMigrate(&models.User{})
+	Config.DB.AutoMigrate(&models.Activities{})
 	r := mappings.SetupRouter()
 	//running
 	r.Run()
