@@ -14,7 +14,7 @@ func GetAllUsers(user *[]User) (err error) {
 }
 
 //CreateUser ... Insert New data
-func CreateUser(user *User) (err error) {
+func CreateUser(user *UserInput) (err error) {
 	if err = Config.DB.Create(user).Error; err != nil {
 		return err
 	}

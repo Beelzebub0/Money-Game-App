@@ -16,3 +16,13 @@ type User struct {
 func (b *User) TableName() string {
 	return "user"
 }
+
+type UserInput struct {
+	Name  string `json:"name"`
+	Job   string `json:"job"`
+	Notes string `json:"notes"`
+}
+
+func (ui *UserInput) TableName() string {
+	return "user"
+}

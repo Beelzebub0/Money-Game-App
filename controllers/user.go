@@ -23,7 +23,7 @@ func GetUsers(c *gin.Context) {
 
 //CreateUser ... Create User
 func CreateUser(c *gin.Context) {
-	var user models.User
+	var user models.UserInput
 	c.BindJSON(&user)
 	err := models.CreateUser(&user)
 	if err != nil {
